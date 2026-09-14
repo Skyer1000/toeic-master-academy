@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TOEIC Master Academy</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:"Microsoft JhengHei",sans-serif;
+  background:#f8fafc;
+}
+
+header{
+  background:#2563eb;
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+
+nav{
+  background:white;
+  padding:15px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+nav a{
+  text-decoration:none;
+  color:#2563eb;
+  font-weight:bold;
+}
+
+.hero{
+  text-align:center;
+  padding:80px 20px;
+  background:linear-gradient(
+      135deg,
+      #2563eb,
+      #0ea5e9
+  );
+  color:white;
+}
+
+.hero h1{
+  font-size:48px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:20px;
+  margin-bottom:30px;
+}
+
+.button{
+  display:inline-block;
+  padding:12px 25px;
+  border-radius:10px;
+  background:white;
+  color:#2563eb;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.modules{
+  max-width:1200px;
+  margin:auto;
+  padding:50px 20px;
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:white;
+  border-radius:15px;
+  padding:25px;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.card h3{
+  color:#2563eb;
+  margin-bottom:10px;
+}
+
+.card a{
+  text-decoration:none;
+  color:#0ea5e9;
+}
+
+footer{
+  background:#1e293b;
+  color:white;
+  text-align:center;
+  padding:30px;
+  margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>TOEIC Master Academy</h1>
+  <p>個人 TOEIC 學習平台</p>
+</header>
+
+<nav>
+  vocabulary.html單字</a>
+  <a href="grammar.html">文法</a>
+  <a href="listening.html">聽力</a>
+  <a href="reading.html">閱讀</a>
+  <a href="speaking.html">口說</a>
+  <a href="writing.html">寫作</a>
+  <a href="favorite.html">收藏</a>
+  <a href="exam.html">模擬考</a>
+</nav>
+
+<section class="hero">
+
+  <h1>TOEIC MASTER ACADEMY</h1>
+
+  <p>
+    Vocabulary ・ Grammar ・ Listening ・
+    Reading ・ Speaking ・ Writing
+  </p>
+
+  <a class="button"
+     學習
+  </a>
+
+</section>
+
+<section class="modules">
+
+  <div class="card">
+    <h3>📚 TOEIC 單字</h3>
+    <p>3000 高頻商務單字</p>
+    <a href="vocabulary.html>
+  </div>
+
+  <div class="card">
+    <h3>📝 TOEIC 文法</h3>
+    <p>500 文法練習題</p>
+    <a href="grammar.html">開始練習 →</a>
+  </div>
+
+  <div class="card">
+    <h3>🎧 Listening</h3>
+    <p>Part 1~4 聽力訓練</p>
+    <a href="listening.html">開始聽力 →</a>
+  </div>
+
+  <div class="card">
+    <h3>📖 Reading</h3>
+    <p>Part 5~7 閱讀測驗</p>
+    <a href="reading.html">開始閱讀 →</a>
+  </div>
+
+  <div class="card">
+    <h3>🎤 Speaking</h3>
+    <p>TOEIC Speaking 練習</p>
+    <a href="speaking.html">開始口說 →</a>
+  </div>
+
+  <div class="card">
+    <h3>✍️ Writing</h3>
+    <p>Email 與 Essay 訓練</p>
+    <a href="writing.html">開始寫作 →</a>
+  </div>
+
+  <div class="card">
+    <h3>⭐ 我的收藏</h3>
+    <p>收藏重要單字與題目</p>
+    <a href="favorite.html">查看收藏 →</a>
+  </div>
+
+  <div class="card">
+    <h3>🏆 完整模擬考</h3>
+    <p>TOEIC 200 題測驗</p>
+    <a href="exam.html">開始測驗 →</a>
+  </div>
+
+</section>
+
+<footer>
+
+  <p>
+    TOEIC Master Academy
+  </p>
+
+  <p>
+    Personal Learning Site
+  </p>
+
+</footer>
+
+</body>
+</html>
