@@ -1,0 +1,105 @@
+[
+  {
+    "word": "contract",
+    "part": "noun",
+    "meaning": "合約",
+    "example": "The company signed a contract."
+  },
+  {
+    "word": "negotiate",
+    "part": "verb",
+    "meaning": "協商",
+    "example": "We negotiated a better price."
+  },
+  {
+    "word": "deadline",
+    "part": "noun",
+    "meaning": "截止日期",
+    "example": "The deadline is Friday."
+  },
+  {
+    "word": "revenue",
+    "part": "noun",
+    "meaning": "營收"
+  },
+  {
+    "word": "purchase",
+    "part": "verb",
+    "meaning": "購買"
+  },
+  {
+    "word": "inventory",
+    "part": "noun",
+    "meaning": "庫存"
+  },
+  {
+    "word": "conference",
+    "part": "noun",
+    "meaning": "會議"
+  },
+  {
+    "word": "appointment",
+    "part": "noun",
+    "meaning": "預約"
+  },
+  {
+    "word": "shipment",
+    "part": "noun",
+    "meaning": "貨運"
+  },
+  {
+    "word": "supplier",
+    "part": "noun",
+    "meaning": "供應商"
+  },
+  {
+    "word": "customer",
+    "part": "noun",
+    "meaning": "客戶"
+  },
+  {
+    "word": "employee",
+    "part": "noun",
+    "meaning": "員工"
+  },
+  {
+    "word": "promotion",
+    "part": "noun",
+    "meaning": "促銷"
+  },
+  {
+    "word": "advertisement",
+    "part": "noun",
+    "meaning": "廣告"
+  },
+  {
+    "word": "schedule",
+    "part": "noun",
+    "meaning": "時間表"
+  },
+  {
+    "word": "budget",
+    "part": "noun",
+    "meaning": "預算"
+  },
+  {
+    "word": "meeting",
+    "part": "noun",
+    "meaning": "會議"
+  },
+  {
+    "word": "invoice",
+    "part": "noun",
+    "meaning": "發票"
+  },
+  {
+    "word": "payment",
+    "part": "noun",
+    "meaning": "付款"
+  },
+  {
+    "word": "manager",
+    "part": "noun",
+    "meaning": "經理"
+  }
+]
