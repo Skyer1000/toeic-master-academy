@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TOEIC Vocabulary</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fa;
+    margin:0;
+}
+
+header{
+    background:#2563eb;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.word{
+    font-size:28px;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+.meaning{
+    margin-top:10px;
+    font-size:18px;
+}
+
+.example{
+    margin-top:10px;
+    color:#555;
+}
+
+button{
+    margin-top:15px;
+    padding:10px 15px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.speak{
+    background:#3b82f6;
+    color:white;
+}
+
+.favorite{
+    background:#f59e0b;
+    color:white;
+}
+
+.search{
+    width:100%;
+    padding:10px;
+    margin-bottom:20px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+a{
+    color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>📚 TOEIC Vocabulary Center</h1>
+
+<p>
+index.html返回首頁</a>
+</p>
+
+</header>
+
+<div class="container">
+
+<input
+type="text"
+id="search"
+class="search"
+placeholder="搜尋單字..."
+onkeyup="searchWord()">
+
+<div class="card">
+
+<div class="word">contract</div>
+
+<div class="meaning">
+合約、契約
+</div>
+
+<div class="example">
+The company signed a new contract.
+</div>
+
+<button
+class="speak"
+onclick="speak('contract')">
+🔊 發音
+</button>
+
+<button
+class="favorite"
+onclick="addFavorite('contract')">
+⭐ 收藏
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="word">negotiate</div>
+
+<div class="meaning">
+協商、談判
+</div>
+
+<div class="example">
+We negotiated a better price.
+</div>
+
+<button
+class="speak"
+onclick="speak('negotiate')">
+🔊 發音
+</button>
+
+<button
+class="favorite"
+onclick="addFavorite('negotiate')">
+⭐ 收藏
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="word">deadline</div>
+
+<div class="meaning">
+截止期限
+</div>
+
+<div class="example">
+The deadline is next Friday.
+</div>
+
+<button
+class="speak"
+onclick="speak('deadline')">
+🔊 發音
+</button>
+
+<button
+class="favorite"
+onclick="addFavorite('deadline')">
+⭐ 收藏
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function speak(word){
+
+    let msg =
+    new SpeechSynthesisUtterance(word);
+
+    msg.lang="en-US";
+
+    speechSynthesis.speak(msg);
+}
+
+function addFavorite(word){
+
+    let favorites =
+    JSON.parse(
+    localStorage.getItem("favorites")
+    ) || [];
+
+    if(!favorites.includes(word)){
+
+        favorites.push(word);
+
+        localStorage.setItem(
+        "favorites",
+        JSON.stringify(favorites)
+        );
+
+        alert(word + " 已收藏");
+    }
+}
+
+function searchWord(){
+
+    let input =
+    document
+    .getElementById("search")
+    .value
+    .toUpperCase();
+
+    let card =
+    document.getElementsByClassName("card");
+
+    for(let i=0;i<card.length;i++){
+
+        let word =
+        card[i]
+        .getElementsByClassName("word")[0]
+        .innerHTML
+        .toUpperCase();
+
+        if(word.indexOf(input)>-1){
+
+            card[i].style.display="block";
+
+        }else{
+
+            card[i].style.display="none";
+        }
+    }
+}
+
+</script>
+
+</body>
+</html>
