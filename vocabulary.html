@@ -1,40 +1,80 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TOEIC Vocabulary</title>
+<title>TOEIC Vocabulary Pro</title>
 
 <style>
 
-body{
-    font-family:Arial,sans-serif;
-    background:#f5f7fa;
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial,sans-serif;
+
+    background:#f5f7fa;
+
 }
 
 header{
 
-  background:
-  linear-gradient(
-    135deg,
-    #2563eb,
-    #0ea5e9
-  );
+    background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #0ea5e9
+    );
 
-  color:white;
+    color:white;
 
-  padding:30px;
+    text-align:center;
+
+    padding:35px;
+
+}
+
+header h1{
+
+    margin-bottom:10px;
 
 }
 
 .container{
-    width:90%;
-    max-width:1000px;
+
+    width:95%;
+
+    max-width:1400px;
+
     margin:auto;
-    padding:20px;
+
+    padding:25px;
+
 }
+
+.search{
+
+    width:100%;
+
+    padding:15px;
+
+    border:1px solid #ccc;
+
+    border-radius:10px;
+
+    margin-bottom:25px;
+
+    font-size:16px;
+
+}
+
 #wordContainer{
 
     display:grid;
@@ -42,24 +82,24 @@ header{
     grid-template-columns:
     repeat(
       auto-fit,
-      minmax(280px,1fr)
+      minmax(300px,1fr)
     );
 
     gap:20px;
 
 }
+
 .card{
 
     background:white;
 
-    padding:20px;
-
     border-radius:15px;
 
+    padding:20px;
+
     box-shadow:
-    0 5px 15px rgba(
-      0,0,0,0.1
-    );
+    0 5px 15px
+    rgba(0,0,0,.1);
 
     transition:.3s;
 
@@ -84,216 +124,334 @@ header{
 
     border-radius:20px;
 
-    margin-bottom:10px;
-
-    font-size:13px;
-
-    font-weight:bold;
-
-}
-``
-    .part{
-
-    color:#64748b;
-
-    margin-top:5px;
+    font-size:12px;
 
     margin-bottom:10px;
 
-    font-style:italic;
-
 }
+
 .word{
 
     font-size:30px;
 
-    color:#2563eb;
-
     font-weight:bold;
 
-    margin-bottom:10px;
+    color:#2563eb;
+
+}
+
+.part{
+
+    color:#666;
+
+    margin-top:8px;
+
+    font-style:italic;
 
 }
 
 .meaning{
 
+    margin-top:12px;
+
     font-size:18px;
 
-    color:#334155;
-
-    margin-bottom:10px;
+    font-weight:bold;
 
 }
 
 .example{
 
-    color:#64748b;
+    margin-top:12px;
 
-    font-size:15px;
+    color:#555;
 
-    line-height:1.5;
+    line-height:1.6;
 
 }
 
 button{
+
     margin-top:15px;
-    padding:10px 15px;
+
+    margin-right:8px;
+
     border:none;
-    border-radius:5px;
+
+    border-radius:8px;
+
+    padding:10px 15px;
+
     cursor:pointer;
+
 }
 
 .speak{
+
     background:#3b82f6;
+
     color:white;
+
 }
 
 .favorite{
+
     background:#f59e0b;
+
     color:white;
+
 }
 
-.search{
-    width:100%;
-    padding:10px;
-    margin-bottom:20px;
+.back{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    color:white;
+
+    text-decoration:none;
+
+}
+
+footer{
+
+    text-align:center;
+
+    padding:30px;
+
+    margin-top:40px;
+
+    color:#666;
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-header
+<header>
 
-<h1>📚 TOEIC Vocabulary Center</h1>
+<h1>📚 TOEIC Vocabulary Pro</h1>
 
 <p>
-index.html返回首頁</a>
+TOEIC 600 / 750 / 900 Vocabulary Database
 </p>
+
+<a
+href="index.html"
+class="back">
+
+🏠 返回首頁
+
+</a>
 
 </header>
 
-<div class="container">
-
-<input
-type="text"
+<div classpe="text"
 id="search"
 class="search"
-placeholder="搜尋單字...">
+placeholder="搜尋單字..."
+onkeyup="searchWord()">
 
-<div id="wordContainer"></div>
+<div id="wordContainer">
+
+⏳ Loading Vocabulary...
 
 </div>
 
+</div>
+
+<footer>
+
+TOEIC Master Academy
+
+</footer>
+
 <script>
+
+let allWords=[];
 
 function speak(word){
 
-    let msg =
-    new SpeechSynthesisUtterance(word);
+    let msg=
+    new SpeechSynthesisUtterance(
+      word
+    );
 
     msg.lang="en-US";
 
     speechSynthesis.speak(msg);
+
 }
 
 function addFavorite(word){
 
-    let favorites =
+    let favorites=
+
     JSON.parse(
-      localStorage.getItem("favorites")
+      localStorage.getItem(
+        "favorites"
+      )
     ) || [];
 
-    if(!favorites.includes(word)){
+    if(
+      !favorites.includes(word)
+    ){
 
         favorites.push(word);
 
         localStorage.setItem(
-            "favorites",
-            JSON.stringify(favorites)
+          "favorites",
+          JSON.stringify(
+            favorites
+          )
         );
 
-        alert(word + " 已收藏");
+        alert(
+          word+" 已收藏"
+        );
+
     }
+
 }
 
 async function loadWords(){
 
     try{
 
-        const response =
+        const response=
+
         await fetch(
-            "data/toeic-3000.json"
+          "data/toeic-3000.json"
         );
 
-        const words =
+        const words=
+
         await response.json();
 
-        let html="";
+        allWords=words;
 
-       words.forEach(word=>{
-
-    html += `
-
-    <div class="card">
-
-        <div class="level">
-            TOEIC ${word.level}
-        </div>
-
-        <div class="word">
-            ${word.word}
-        </div>
-
-        <div class="part">
-            ${word.part}
-        </div>
-
-        <div class="meaning">
-            ${word.meaning}
-        </div>
-
-        <div class="example">
-            ${word.example || ""}
-        </div>
-
-        <button
-        class="speak"
-        onclick="speak('${word.word}')">
-
-        🔊 發音
-
-        </button>
-
-        <button
-        class="favorite"
-        onclick="addFavorite('${word.word}')">
-
-        ⭐ 收藏
-
-        </button>
-
-    </div>
-
-    `;
-
-});
-
-        document
-        .getElementById("wordContainer")
-        .innerHTML = html;
+        renderWords(words);
 
     }
+
     catch(error){
 
         document
-        .getElementById("wordContainer")
-        .innerHTML =
-        "<h2>無法讀取單字資料庫</h2>";
+        .getElementById(
+          "wordContainer"
+        )
+        .innerHTML=
 
-        console.error(error);
+        "<h2>無法載入單字資料庫</h2>";
+
+        console.log(error);
+
     }
+
+}
+
+function renderWords(words){
+
+    let html="";
+
+    words.forEach(word=>{
+
+        html+=`
+
+        <div class="card">
+
+            <div class="level">
+
+            TOEIC ${word.level}
+
+            </div>
+
+            <div class="word">
+
+            ${word.word}
+
+            </div>
+
+            <div class="part">
+
+            ${word.part}
+
+            </div>
+
+            <div class="meaning">
+
+            ${word.meaning}
+
+            </div>
+
+            <div class="example">
+
+            ${word.example || ""}
+
+            </div>
+
+            <button
+            class="speak"
+            onclick="speak('${word.word}')">
+
+            🔊 發音
+
+            </button>
+
+            <button
+            class="favorite"
+            onclick="addFavorite('${word.word}')">
+
+            ⭐ 收藏
+
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+    document
+    .getElementById(
+      "wordContainer"
+    )
+    .innerHTML=html;
+
+}
+
+function searchWord(){
+
+    let key=
+
+    document
+    .getElementById(
+      "search"
+    )
+    .value
+    .toLowerCase();
+
+    let result=
+
+    allWords.filter(word=>
+
+      word.word
+      .toLowerCase()
+      .includes(key)
+
+      ||
+
+      word.meaning
+      .includes(key)
+
+    );
+
+    renderWords(result);
+
 }
 
 loadWords();
