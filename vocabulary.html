@@ -15,10 +15,18 @@ body{
 }
 
 header{
-    background:#2563eb;
-    color:white;
-    text-align:center;
-    padding:20px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #2563eb,
+    #0ea5e9
+  );
+
+  color:white;
+
+  padding:30px;
+
 }
 
 .container{
@@ -27,29 +35,74 @@ header{
     margin:auto;
     padding:20px;
 }
+#wordContainer{
 
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(280px,1fr)
+    );
+
+    gap:20px;
+
+}
 .card{
+
     background:white;
+
     padding:20px;
-    margin-bottom:20px;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,.1);
+
+    border-radius:15px;
+
+    box-shadow:
+    0 5px 15px rgba(
+      0,0,0,0.1
+    );
+
+    transition:.3s;
+
 }
 
+.card:hover{
+
+    transform:
+    translateY(-5px);
+
+}
+
+
 .word{
-    font-size:28px;
+
+    font-size:30px;
+
     color:#2563eb;
+
     font-weight:bold;
+
+    margin-bottom:10px;
+
 }
 
 .meaning{
-    margin-top:10px;
+
     font-size:18px;
+
+    color:#334155;
+
+    margin-bottom:10px;
+
 }
 
 .example{
-    margin-top:10px;
-    color:#666;
+
+    color:#64748b;
+
+    font-size:15px;
+
+    line-height:1.5;
+
 }
 
 button{
@@ -81,7 +134,7 @@ button{
 
 <body>
 
-<header>
+header
 
 <h1>📚 TOEIC Vocabulary Center</h1>
 
