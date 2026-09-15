@@ -24,13 +24,154 @@ header{
 }
 
 .container{
-
     width:95%;
-
     max-width:1400px;
-
     margin:auto;
+    padding:20px;
+}
+
+.search{
+    width:100%;
+    padding:15px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    margin-bottom:20px;
+    font-size:16px;
+}
+
+#wordContainer{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+    gap:20px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:15px;
 
     padding:20px;
+
+    box-shadow:
+    0 5px 15px rgba(
+        0,0,0,.1
+    );
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:
+    translateY(-5px);
+
+}
+
+.level{
+
+    display:inline-block;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    margin-bottom:10px;
+
+    font-size:12px;
+
+}
+
+.word{
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    color:#2563eb;
+
+}
+
+.part{
+
+    color:#64748b;
+
+    margin-top:8px;
+
+    font-style:italic;
+
+}
+
+.meaning{
+
+    margin-top:12px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:#111827;
+
+}
+
+.example{
+
+    margin-top:10px;
+
+    color:#6b7280;
+
+    line-height:1.5;
+
+}
+
+button{
+
+    border:none;
+
+    border-radius:8px;
+
+    padding:10px 15px;
+
+    cursor:pointer;
+
+    margin-top:15px;
+
+    margin-right:10px;
+
+}
+
+.speak{
+
+    background:#3b82f6;
+
+    color:white;
+
+}
+
+.favorite{
+
+    background:#f59e0b;
+
+    color:white;
+
+}
+
+footer{
+
+    text-align:center;
+
+    padding:30px;
+
+    color:#666;
 
 }
