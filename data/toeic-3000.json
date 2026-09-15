@@ -1,45 +1,162 @@
 [
   {
+    "id": 1,
+    "level": "600",
     "word": "contract",
+    "part": "noun",
     "meaning": "合約",
     "example": "The company signed a contract."
   },
   {
+    "id": 2,
+    "level": "600",
     "word": "negotiate",
+    "part": "verb",
     "meaning": "協商",
     "example": "We negotiated a better price."
   },
   {
+    "id": 3,
+    "level": "600",
     "word": "deadline",
+    "part": "noun",
     "meaning": "截止日期",
     "example": "The deadline is Friday."
   },
   {
+    "id": 4,
+    "level": "600",
     "word": "supplier",
-    "meaning": "供應商"
+    "part": "noun",
+    "meaning": "供應商",
+    "example": "The supplier delivered the goods on time."
   },
   {
+    "id": 5,
+    "level": "600",
     "word": "inventory",
-    "meaning": "庫存"
+    "part": "noun",
+    "meaning": "庫存",
+    "example": "The inventory was checked monthly."
   },
   {
+    "id": 6,
+    "level": "600",
     "word": "customer",
-    "meaning": "客戶"
+    "part": "noun",
+    "meaning": "客戶",
+    "example": "The customer was satisfied with the service."
   },
   {
+    "id": 7,
+    "level": "600",
     "word": "employee",
-    "meaning": "員工"
+    "part": "noun",
+    "meaning": "員工",
+    "example": "Employees attended the training session."
   },
   {
+    "id": 8,
+    "level": "600",
     "word": "conference",
-    "meaning": "會議"
+    "part": "noun",
+    "meaning": "會議",
+    "example": "The conference begins tomorrow morning."
   },
   {
+    "id": 9,
+    "level": "600",
     "word": "appointment",
-    "meaning": "預約"
+    "part": "noun",
+    "meaning": "預約",
+    "example": "I have an appointment with the manager."
   },
   {
+    "id": 10,
+    "level": "600",
     "word": "budget",
-    "meaning": "預算"
+    "part": "noun",
+    "meaning": "預算",
+    "example": "The project exceeded the budget."
+  },
+  {
+    "id": 11,
+    "level": "750",
+    "word": "revenue",
+    "part": "noun",
+    "meaning": "營收",
+    "example": "Revenue increased by ten percent this year."
+  },
+  {
+    "id": 12,
+    "level": "750",
+    "word": "promotion",
+    "part": "noun",
+    "meaning": "促銷",
+    "example": "The promotion attracted many customers."
+  },
+  {
+    "id": 13,
+    "level": "750",
+    "word": "shipment",
+    "part": "noun",
+    "meaning": "貨運",
+    "example": "The shipment arrived yesterday."
+  },
+  {
+    "id": 14,
+    "level": "750",
+    "word": "benchmark",
+    "part": "noun",
+    "meaning": "基準",
+    "example": "The benchmark was used to measure performance."
+  },
+  {
+    "id": 15,
+    "level": "750",
+    "word": "proposal",
+    "part": "noun",
+    "meaning": "提案",
+    "example": "The proposal was approved by the board."
+  },
+  {
+    "id": 16,
+    "level": "900",
+    "word": "procurement",
+    "part": "noun",
+    "meaning": "採購",
+    "example": "The procurement process was completed successfully."
+  },
+  {
+    "id": 17,
+    "level": "900",
+    "word": "compliance",
+    "part": "noun",
+    "meaning": "遵循規範",
+    "example": "Compliance with regulations is essential."
+  },
+  {
+    "id": 18,
+    "level": "900",
+    "word": "implementation",
+    "part": "noun",
+    "meaning": "執行",
+    "example": "The implementation of the policy took several months."
+  },
+  {
+    "id": 19,
+    "level": "900",
+    "word": "strategic",
+    "part": "adjective",
+    "meaning": "策略性的",
+    "example": "The company developed a strategic plan."
+  },
+  {
+    "id": 20,
+    "level": "900",
+    "word": "sustainability",
+    "part": "noun",
+    "meaning": "永續發展",
+    "example": "Sustainability is a core business goal."
   }
 ]
