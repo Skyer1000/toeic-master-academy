@@ -202,45 +202,53 @@ async function loadWords(){
 
         let html="";
 
-        words.forEach(word=>{
+       words.forEach(word=>{
 
-            html += `
+    html += `
 
-            <div class="card">
+    <div class="card">
 
-                <div class="word">
-                    ${word.word}
-                </div>
+        <div class="level">
+            TOEIC ${word.level}
+        </div>
 
-                <div class="meaning">
-                    ${word.meaning}
-                </div>
+        <div class="word">
+            ${word.word}
+        </div>
 
-                <div class="example">
-                    ${word.example || ""}
-                </div>
+        <div class="part">
+            ${word.part}
+        </div>
 
-                <button
-                class="speak"
-                onclick="speak('${word.word}')">
+        <div class="meaning">
+            ${word.meaning}
+        </div>
 
-                🔊 發音
+        <div class="example">
+            ${word.example || ""}
+        </div>
 
-                </button>
+        <button
+        class="speak"
+        onclick="speak('${word.word}')">
 
-                <button
-                class="favorite"
-                onclick="addFavorite('${word.word}')">
+        🔊 發音
 
-                ⭐ 收藏
+        </button>
 
-                </button>
+        <button
+        class="favorite"
+        onclick="addFavorite('${word.word}')">
 
-            </div>
+        ⭐ 收藏
 
-            `;
+        </button>
 
-        });
+    </div>
+
+    `;
+
+});
 
         document
         .getElementById("wordContainer")
