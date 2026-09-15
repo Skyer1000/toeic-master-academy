@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="container">
 
-<title>TOEIC Vocabulary</title>
+<input
+type="text"
+id="search"
+class="search"
+placeholder="搜尋單字..."
+onkeyup="searchWord()">
 
-<style>
+<div id="wordContainer">
 
-body{
+</div>
+
+</div>
     font-family:Arial,sans-serif;
     background:#f5f7fa;
     margin:0;
@@ -194,7 +197,7 @@ function speak(word){
     let msg =
     new SpeechSynthesisUtterance(word);
 
-    msg.lang="en-US";
+    msg.lang = "en-US";
 
     speechSynthesis.speak(msg);
 }
@@ -203,7 +206,7 @@ function addFavorite(word){
 
     let favorites =
     JSON.parse(
-    localStorage.getItem("favorites")
+      localStorage.getItem("favorites")
     ) || [];
 
     if(!favorites.includes(word)){
@@ -211,43 +214,73 @@ function addFavorite(word){
         favorites.push(word);
 
         localStorage.setItem(
-        "favorites",
-        JSON.stringify(favorites)
+          "favorites",
+          JSON.stringify(favorites)
         );
 
         alert(word + " 已收藏");
     }
 }
 
-function searchWord(){
+async function loadWords(){
 
-    let input =
+    const response =
+    await fetch(
+      "data/toeic-3000.json"
+    );
+
+    const words =
+    await response.json();
+
+    let html = "";
+
+    words.forEach(word=>{
+
+        html += `
+
+        <div class="card">
+
+            <div class="word">
+            ${word.word}
+            </div>
+
+            <div class="meaning">
+            ${word.meaning}
+            </div>
+
+            <div class="example">
+            ${word.example || ""}
+            </div>
+
+            <button
+            class="speak"
+            onclick="speak('${word.word}')">
+
+            🔊 發音
+
+            </button>
+
+            <button
+            class="favorite"
+            onclick="addFavorite('${word.word}')">
+
+            ⭐ 收藏
+
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
     document
-    .getElementById("search")
-    .value
-    .toUpperCase();
-
-    let card =
-    document.getElementsByClassName("card");
-
-    for(let i=0;i<card.length;i++){
-
-        let word =
-        card[i]
-        .getElementsByClassName("word")[0]
-        .innerHTML
-        .toUpperCase();
-
-        if(word.indexOf(input)>-1){
-
-            card[i].style.display="block";
-
-        }else{
-
-            card[i].style.display="none";
-        }
-    }
+    .getElementById(
+       "wordContainer"
+    ).innerHTML = html;
 }
+
+loadWords();
 
 </script>
 
