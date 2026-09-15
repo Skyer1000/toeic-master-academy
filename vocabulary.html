@@ -1,17 +1,14 @@
-<div class="container">
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<input
-type="text"
-id="search"
-class="search"
-placeholder="搜尋單字..."
-onkeyup="searchWord()">
+<title>TOEIC Vocabulary</title>
 
-<div id="wordContainer">
+<style>
 
-</div>
-
-</div>
+body{
     font-family:Arial,sans-serif;
     background:#f5f7fa;
     margin:0;
@@ -52,7 +49,7 @@ header{
 
 .example{
     margin-top:10px;
-    color:#555;
+    color:#666;
 }
 
 button{
@@ -77,16 +74,9 @@ button{
     width:100%;
     padding:10px;
     margin-bottom:20px;
-    border-radius:5px;
-    border:1px solid #ccc;
-}
-
-a{
-    color:white;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -107,86 +97,9 @@ index.html返回首頁</a>
 type="text"
 id="search"
 class="search"
-placeholder="搜尋單字..."
-onkeyup="searchWord()">
+placeholder="搜尋單字...">
 
-<div class="card">
-
-<div class="word">contract</div>
-
-<div class="meaning">
-合約、契約
-</div>
-
-<div class="example">
-The company signed a new contract.
-</div>
-
-<button
-class="speak"
-onclick="speak('contract')">
-🔊 發音
-</button>
-
-<button
-class="favorite"
-onclick="addFavorite('contract')">
-⭐ 收藏
-</button>
-
-</div>
-
-<div class="card">
-
-<div class="word">negotiate</div>
-
-<div class="meaning">
-協商、談判
-</div>
-
-<div class="example">
-We negotiated a better price.
-</div>
-
-<button
-class="speak"
-onclick="speak('negotiate')">
-🔊 發音
-</button>
-
-<button
-class="favorite"
-onclick="addFavorite('negotiate')">
-⭐ 收藏
-</button>
-
-</div>
-
-<div class="card">
-
-<div class="word">deadline</div>
-
-<div class="meaning">
-截止期限
-</div>
-
-<div class="example">
-The deadline is next Friday.
-</div>
-
-<button
-class="speak"
-onclick="speak('deadline')">
-🔊 發音
-</button>
-
-<button
-class="favorite"
-onclick="addFavorite('deadline')">
-⭐ 收藏
-</button>
-
-</div>
+<div id="wordContainer"></div>
 
 </div>
 
@@ -197,7 +110,7 @@ function speak(word){
     let msg =
     new SpeechSynthesisUtterance(word);
 
-    msg.lang = "en-US";
+    msg.lang="en-US";
 
     speechSynthesis.speak(msg);
 }
@@ -214,8 +127,8 @@ function addFavorite(word){
         favorites.push(word);
 
         localStorage.setItem(
-          "favorites",
-          JSON.stringify(favorites)
+            "favorites",
+            JSON.stringify(favorites)
         );
 
         alert(word + " 已收藏");
@@ -224,60 +137,72 @@ function addFavorite(word){
 
 async function loadWords(){
 
-    const response =
-    await fetch(
-      "data/toeic-3000.json"
-    );
+    try{
 
-    const words =
-    await response.json();
+        const response =
+        await fetch(
+            "data/toeic-3000.json"
+        );
 
-    let html = "";
+        const words =
+        await response.json();
 
-    words.forEach(word=>{
+        let html="";
 
-        html += `
+        words.forEach(word=>{
 
-        <div class="card">
+            html += `
 
-            <div class="word">
-            ${word.word}
+            <div class="card">
+
+                <div class="word">
+                    ${word.word}
+                </div>
+
+                <div class="meaning">
+                    ${word.meaning}
+                </div>
+
+                <div class="example">
+                    ${word.example || ""}
+                </div>
+
+                <button
+                class="speak"
+                onclick="speak('${word.word}')">
+
+                🔊 發音
+
+                </button>
+
+                <button
+                class="favorite"
+                onclick="addFavorite('${word.word}')">
+
+                ⭐ 收藏
+
+                </button>
+
             </div>
 
-            <div class="meaning">
-            ${word.meaning}
-            </div>
+            `;
 
-            <div class="example">
-            ${word.example || ""}
-            </div>
+        });
 
-            <button
-            class="speak"
-            onclick="speak('${word.word}')">
+        document
+        .getElementById("wordContainer")
+        .innerHTML = html;
 
-            🔊 發音
+    }
+    catch(error){
 
-            </button>
+        document
+        .getElementById("wordContainer")
+        .innerHTML =
+        "<h2>無法讀取單字資料庫</h2>";
 
-            <button
-            class="favorite"
-            onclick="addFavorite('${word.word}')">
-
-            ⭐ 收藏
-
-            </button>
-
-        </div>
-
-        `;
-
-    });
-
-    document
-    .getElementById(
-       "wordContainer"
-    ).innerHTML = html;
+        console.error(error);
+    }
 }
 
 loadWords();
